@@ -50,6 +50,7 @@ class ArrayListSpliteratorExampleTest {
         [Test worker] - Total Time Taken : 50
         [Test worker] - Total Time Taken : 45
 
+        ArrayList is easy to split into chunks, as it is indexed.
         When you run the code in parallel, we were able to achieve a greater performance compared to sequential stream
     * */
 }
