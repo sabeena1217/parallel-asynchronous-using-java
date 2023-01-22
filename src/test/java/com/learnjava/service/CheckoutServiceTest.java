@@ -6,6 +6,8 @@ import com.learnjava.domain.checkout.CheckoutStatus;
 import com.learnjava.util.DataSet;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.ForkJoinPool;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -17,6 +19,14 @@ class CheckoutServiceTest {
     @Test
     void no_of_cores() {
         System.out.println("no of cores :" + Runtime.getRuntime().availableProcessors()); // 8
+    }
+
+    @Test
+    void parallelism() {
+        System.out.println("parallelism :" + ForkJoinPool.getCommonPoolParallelism());
+        // no of cores - 1
+        // the common forkjoin pool normally involves a thread where this particular competition is initiated.
+        // this is done to avoid deadlocks
     }
 
     @Test
