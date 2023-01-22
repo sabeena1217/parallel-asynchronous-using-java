@@ -7,6 +7,7 @@ import com.learnjava.util.DataSet;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CheckoutServiceTest {
 
@@ -15,7 +16,7 @@ class CheckoutServiceTest {
 
     @Test
     void no_of_cores() {
-        System.out.println("no of cores :" +Runtime.getRuntime().availableProcessors()); // 8
+        System.out.println("no of cores :" + Runtime.getRuntime().availableProcessors()); // 8
     }
 
     @Test
@@ -24,7 +25,7 @@ class CheckoutServiceTest {
         CheckoutResponse checkoutResponse = checkoutService.checkout(cart);
 
         assertEquals(CheckoutStatus.SUCCESS, checkoutResponse.getCheckoutStatus());
-        assertEquals(0, checkoutResponse.getErrorList().size());
+        assertTrue(checkoutResponse.getFinalRate() > 0);
     }
 
     @Test
