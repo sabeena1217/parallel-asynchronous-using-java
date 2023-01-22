@@ -2,6 +2,8 @@ package com.learnjava.parallelstreams;
 
 import com.learnjava.util.DataSet;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
@@ -20,6 +22,20 @@ class ParallelStreamsExampleTest {
         List<String> inputList = DataSet.namesList();
         startTimer();
         List<String> resultList = parallelStreamsExample.stringTransform(inputList);
+        timeTaken();
+
+        assertEquals(4, resultList.size());
+        resultList.forEach(name ->
+                assertTrue(name.contains("-")));
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {false, true})
+    void stringTransform_1(boolean isParallel) {
+
+        List<String> inputList = DataSet.namesList();
+        startTimer();
+        List<String> resultList = parallelStreamsExample.stringTransform_1(inputList, isParallel);
         timeTaken();
 
         assertEquals(4, resultList.size());
