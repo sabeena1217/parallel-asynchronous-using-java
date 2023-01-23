@@ -10,11 +10,12 @@ public class CompletableFutureHelloWorld {
 
     public static void main(String[] args) {
         HelloWorldService hws = new HelloWorldService();
-        CompletableFuture.supplyAsync(() -> hws.helloWorld())
+        CompletableFuture.supplyAsync(hws::helloWorld)
+                .thenApply(String::toUpperCase)
                 .thenAccept((result) -> {
                     log("Result is " + result);
                 })
-                .join();
+                .join();  // now it blocks the main thread
 
         log("Done!");
 //        delay(2000);
