@@ -1,6 +1,7 @@
 package com.learnjava.parallelstreams;
 
 import com.learnjava.util.DataSet;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ class ParallelStreamPerformanceTest {
     ParallelStreamPerformance intStreamExample = new ParallelStreamPerformance();
 
     @Test
+    @Order(1)
     void sum_using_intstream() {
         //given
 
@@ -24,6 +26,7 @@ class ParallelStreamPerformanceTest {
     }
 
     @Test
+    @Order(2)
     void sum_using_intstream_parallel() {
         //given
 
@@ -36,6 +39,7 @@ class ParallelStreamPerformanceTest {
     }
 
     @Test
+    @Order(3)
     void sum_using_iterate() {
         //given
 
@@ -48,6 +52,7 @@ class ParallelStreamPerformanceTest {
     }
 
     @Test
+    @Order(4)
     void sum_using_iterate_parallel() {
         //given
 
@@ -60,6 +65,7 @@ class ParallelStreamPerformanceTest {
     }
 
     @Test
+    @Order(5)
     void sum_using_list() {
         //given
         int size = 1000000;
@@ -73,6 +79,7 @@ class ParallelStreamPerformanceTest {
     }
 
     @Test
+    @Order(6)
     void sum_using_list_parallel() {
         //given
         int size = 1000000;
